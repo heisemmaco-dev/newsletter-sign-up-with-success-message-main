@@ -3,21 +3,44 @@
 
 body {
    font-family: 'Roboto';
+   background-color: v.$Charcoal-Grey;
+   position: relative;
+
+   @include v.media-quire(700px) {
+    @include v.center;
+    padding: 14px;
+    min-height: 100vh;
+   }
+   
 }
 
 main {
     width: 100%;
     @include v.center;
     color: v.$Dark-Slate-Grey;
-
+    height: 100%;
+   
     .first_section {
         @include v.center;
-        max-width: 550px;
+        justify-content: start;
+        max-width: 940px;
         width: 100%;
+        height: 100%;
+        /* display: none; */
+       
+        background-color: v.$White;
+
+        @include v.media-quire(700px) {
+            flex-direction: row-reverse;
+            height: fit-content;
+            padding: 14px;
+            border-radius: 40px;
+        }
     }
 
     .second_section {
         display: none;
+        flex-direction: column;
     }
 }
 
@@ -36,10 +59,19 @@ main {
         flex-direction: column;
         gap: 20px;
         width: 100%;
-        padding: v.$general-padding; 
+        margin-top: 50px;
+        padding-inline: 30px;
+
+        @include  v.media-quire(700px) {
+            margin-top: 0;
+        }
 
         h1 {
             font-size: 2.5em;
+
+            @include  v.media-quire(900px) {
+                font-size: 3.5em;
+            }
         }
 
         ul {
@@ -47,9 +79,72 @@ main {
             flex-direction: column;
             gap: 9px;
             list-style-image: url("/assets/images/icon-list.svg");
+            list-style-position: outside;
             font-size: 1em;
             font-weight: 400;
+
+            li {
+                position: relative;
+    right: 19px;
+            }
             
+        }
+    }
+}
+
+.second_section {
+    background-color: v.$White;
+    max-width: 700px;
+    width: 100%;
+    min-height: 100vh;
+
+    justify-content: space-between;
+
+    padding: 30px;
+
+    @include v.media-quire(700px) {
+        max-width: 400px;
+        min-height: 450px;
+        border-radius: 35px;
+        padding: 40px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 25px;
+
+        @include v.media-quire(700px) {
+            font-size: 0.88em;
+        }
+
+        img {
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.6em;
+            font-weight: 900;
+            line-height: 1;
+        }
+    }
+
+    .dismiss_button {
+        padding: 15px;
+        border-radius: 8px;
+        outline: none;
+        background-color: v.$Dark-Slate-Grey;
+        border: none;
+        color: v.$White;
+        font-weight: 600;
+
+        cursor: pointer;
+        user-select: none;
+        margin-top: 8px;
+
+        &:is(:hover, :focus) {
+            @include v.hover;
         }
     }
 }
@@ -60,10 +155,19 @@ form {
     align-items: start;
     gap: 10px;
     width: 100%;
+    margin-bottom: 27px;
 
-    padding: v.$general-padding;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
 
-    label {
+        span {
+            display: none;
+        }
+    }
+
+    label, span {
         font-weight: 700;
     }
 
@@ -77,17 +181,15 @@ form {
         padding-inline: 20px;
         border-radius: 8px;
         outline: none;
-
-        &:is(:hover, :focus) {
-            @include v.hover;
-        }
+        cursor: pointer;
     }
 
     input::placeholder {
         color: v.$Grey;
+        font-weight: 600;
     }
 
-    button {
+    button { 
         padding: 15px;
         border-radius: 8px;
         outline: none;
@@ -96,11 +198,37 @@ form {
         color: v.$White;
         font-weight: 600;
 
+        cursor: pointer;
+        user-select: none;
+        margin-top: 8px;
+
         &:is(:hover, :focus) {
             @include v.hover;
         }
     }
 }
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+form.error span {
+    color: red;
+    display: initial;
+}
+
+form.error input {
+    border: 1px solid red;
+    color: red;
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+    a { 
+        color: hsl(228, 45%, 44%); 
+    }
+}

@@ -17,7 +17,7 @@
   <main>
     <section class="first_section">
       <picture>
-        <source media="(min-width: 600px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+        <source media="(min-width: 700px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
         <img src="./assets/images/illustration-sign-up-mobile.svg" alt="">
       </picture>
 
@@ -33,30 +33,37 @@
           <li>Measuring to ensure updates are a success</li>
           <li>And much more!</li>
         </ul>
+
+        <form autocomplete="on">
+          <div class="content">
+            <label for="js-inpute">Email address</label>
+            <span><!-- Valid email required --></span>
+          </div>
+          
+          <input type="text" placeholder="email@company.com" id="js-inpute">
+          <button>Subscribe to monthly newsletter</button>
+        </form>
       
       </article>
-    
-      <!-- Sign-up form end -->
-      <form>
-        <label for="email">Email address</label>
-        <input type="text" placeholder="email@company.com">
-        <button>Subscribe to monthly newsletter</button>
-      </form>
+     
   
     </section>
 
     <section class="second_section">
         <!-- Success message start -->
-        <img src="./assets/images/icon-success.svg" alt="icon list">
+
+        <article>
+          <img src="./assets/images/icon-success.svg" alt="icon list">
     
-       <h1>Thanks for subscribing!</h1> 
-    
-       <p>
-        A confirmation email has been sent to <strong>ash@loremcompany.com.</strong>  
-        Please open it and click the button inside to confirm your subscription.
-       </p>
+          <h1>Thanks for subscribing!</h1> 
+       
+          <p>
+           A confirmation email has been sent to <strong></strong>  
+           Please open it and click the button inside to confirm your subscription.
+          </p>
+        </article>
       
-       <button>
+       <button class="dismiss_button">
          Dismiss message
        </button>
 
@@ -68,5 +75,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://www.twitter.com/heisemmaco">Am Emmanuel</a>.
   </footer>
+
+  <script src="./App/main.js"></script>
 </body>
 </html>

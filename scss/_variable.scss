@@ -12,10 +12,16 @@ $general-padding: 18px;
     justify-content: center;
 }
 
-@mixin hover {
-    outline: 2px solid $Charcoal-Grey;
-    outline-offset: 2px;
+@mixin media-quire($input) {
+    @media screen and (min-width:$input) {
+        @content;
+    }
 }
+
+@mixin hover {
+   background: linear-gradient(90deg,rgb(255, 5, 142), $Tomato);
+}
+
 
 @font-face {
     font-family: 'Roboto';
